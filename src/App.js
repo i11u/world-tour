@@ -1,21 +1,36 @@
-import * as React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import TopPage from "./pages/TopPage";
 import CameraPage from "./pages/CameraPage";
 import PhotoListPage from "./pages/PhotoListPage";
 import PointListPage from "./pages/PointListPage";
 import ARReaderPage from "./pages/ARReaderPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(true);
   return (
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/" exact component={TopPage} />
-          <Route path="/ar-reader" component={ARReaderPage} />
-          <Route path="/camera" component={CameraPage} />
-          <Route path="/pointlist" component={PointListPage} />
-          <Route path="/photolist" component={PhotoListPage} />
+          <Route exact path="/">
+            {loggedIn ? <TopPage /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/login">
+            <LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          </Route>
+          <Route path="/ar-reader">
+            <ARReaderPage />
+          </Route>
+          <Route path="/camera">
+            <CameraPage />
+          </Route>
+          <Route path="/pointlist">
+            <PointListPage />
+          </Route>
+          <Route path="/photolist">
+            <PhotoListPage />
+          </Route>{" "}
         </Switch>
       </div>
     </BrowserRouter>
