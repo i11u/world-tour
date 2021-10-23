@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import TopPage from "./pages/TopPage";
+import CameraPage from "./pages/CameraPage";
+import PhotoListPage from "./pages/PhotoListPage";
+import PointListPage from "./pages/PointListPage";
+import ARReaderPage from "./pages/ARReaderPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route path="/" exact component={TopPage} />
+          <Route path="/ar-reader" component={ARReaderPage} />
+          <Route path="/camera" component={CameraPage} />
+          <Route path="/pointlist" component={PointListPage} />
+          <Route path="/photolist" component={PhotoListPage} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
