@@ -1,5 +1,9 @@
 function PointListPage() {
-  return <div>PointList Page</div>;
+  return (
+    <div>
+      Point<p>You can see the point here</p>
+    </div>
+  );
 }
 
 export default PointListPage;
