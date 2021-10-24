@@ -54,7 +54,8 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/">
-            {loggedIn ? <TopPage /> : <Redirect to="/login" />}
+            {/* {loggedIn ? <TopPage /> : <Redirect to="/login" />} */}
+            <TopPage />
           </Route>
           <Route path="/login">
             <LoginPage login={login} />
