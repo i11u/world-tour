@@ -8,6 +8,8 @@ import PointListPage from "./pages/PointListPage";
 import ARReaderPage from "./pages/ARReaderPage";
 import LoginPage from "./pages/LoginPage";
 
+// import {auth} from "./firebase";
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -26,32 +28,32 @@ function App() {
 
     setLoggedIn(true);
 
-    auth().onAuthStateChanged(async user => {
-      if (user) {
-        // 3.1 firebaseにログイン済みの場合、ユーザー情報を取得し、終了
-        this.user = user
-      } else {
-        // 3.2 firebaseにログインしていない場合
-        // 3.2.1 LIFF APIを利用して、LINEのアクセストークンを取得
-        const accessToken = liff.getAccessToken()
-        // 3.2.3 LINEのIDトークンをfirebase functionsに投げて、firebaseのカスタム認証用トークンを取得
-        const login = functions.httpsCallable('login')
-        const result = await login({accessToken})
-        if (result.data.error) {
-          console.error(result.data.error)
-        } else {
-          // 3.2.4 firebaseの認証用トークンを利用してカスタム認証
-          const res = await auth().signInWithCustomToken(result.data.token)
-          this.user = res.user
-        }
-      }
-    })
+    // auth.onAuthStateChanged(async user => {
+    //   if (user) {
+    //     // 3.1 firebaseにログイン済みの場合、ユーザー情報を取得し、終了
+    //     this.user = user
+    //   } else {
+    //     // 3.2 firebaseにログインしていない場合
+    //     // 3.2.1 LIFF APIを利用して、LINEのアクセストークンを取得
+    //     const accessToken = liff.getAccessToken()
+    //     // 3.2.3 LINEのIDトークンをfirebase functionsに投げて、firebaseのカスタム認証用トークンを取得
+    //     const login = functions.httpsCallable('login')
+    //     const result = await login({accessToken})
+    //     if (result.data.error) {
+    //       console.error(result.data.error)
+    //     } else {
+    //       // 3.2.4 firebaseの認証用トークンを利用してカスタム認証
+    //       const res = await auth().signInWithCustomToken(result.data.token)
+    //       this.user = res.user
+    //     }
+    //   }
+    // })
     // return <Redirect />;
   }
 
   return (
     <BrowserRouter>
-      <div>
+      <div className="App">
         <Switch>
           <Route exact path="/">
             {/* {loggedIn ? <TopPage /> : <Redirect to="/login" />} */}
