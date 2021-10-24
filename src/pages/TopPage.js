@@ -17,8 +17,8 @@ function TopPage() {
       <Grid item xs={6}>
         <ListItem>
           {" "}
-          <StyledLink to="/camera">
-            <Button variant="contained">さつえい</Button>
+          <StyledLink to="/map">
+            <Button variant="contained">マップ</Button>
           </StyledLink>
         </ListItem>
       </Grid>

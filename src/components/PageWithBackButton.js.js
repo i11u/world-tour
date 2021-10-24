@@ -1,11 +1,13 @@
 import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import styled from "styled-components";
 
 import BackButton from "./BackButton";
 function PageWithBackButton() {
   return (
-    <Container maxwidth="ms">
+    <Box bgcolor="primary.main">
       <BackButton />
-    </Container>
+    </Box>
   );
 }
 
