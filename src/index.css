@@ -1,3 +1,6 @@
+html {
+  height: 100%;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +8,208 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#root {
+  height: 100%;
+}
+.App {
+  height: 100%;
+}
+/*オレオ*/
+@media screen and (max-width: 812px) {
+  .main{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-image: url("./PARK.png");
+    background-size: cover;
+  }
+  .main-home{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-image: url("./Home.png");
+    background-size: cover;
+  }
+  .main-map{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-image: url("./Map.png");
+    background-size: cover;
+    margin: 0!important;
+  }
+  .main-point{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-image: url("./Point.png");
+    background-size: cover;
+    margin: 0!important;
+  }
+  .main-home a{
+    position:  absolute;        /* 要素の配置方法を指定 */
+    padding:  20px;             /* 余白指定 */
+    left:  108px;                /* 左からの位置指定 */
+    top: 583px;  
+  }
+  .main-home .btn-square {
+    height: 84px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    width: 130px;
+    text-decoration: none;
+    background: #EFEFEF;
+    border: 1px solid #999797;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
+  .main-top {
+    margin-top: 100PX;
+  }
+  .main-down {
+    margin-top: 100PX;
+  }
+  .main-AR {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-right: 5px;
+  }
+  .main-map {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: 5px;
+  }
+  .main-point {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-right: 5px;
+  }
+  .main-gallery {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  .btn-square {
+    display: inline-block;
+    padding: 0.5em 1em;
+    width: 130px;
+    height: 150px;
+    text-decoration: none;
+    background: #EFEFEF;
+    border: 1px solid #999797;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
+  .btn-square:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+  }
+  .font-size {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .fa-vr-cardboard {
+    font-size: 40px;
+    color: darkorchid;
+  }
+  .fa-map-marked-alt {
+    font-size: 40px;
+    color: rgb(236, 12, 4);
+  }
+  .fa-plus-circle {
+    font-size: 40px;
+    color: rgb(195, 197, 48);
+  }
+  .fa-images {
+    font-size: 40px;
+    color: rgb(255, 166, 1);
+  }
+
+  .ui {
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px 15px 30px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .ui a {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background-color: #ffffff;
+      line-height: 100%;
+      color: #303030;
+      margin: 10px 3px;
+      border-radius: 50%;
+      position: relative;
+
+  }
+  .ui a i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+  }
+  .ui a:active {
+      color: #ff0000;
+  }
+
+  #snap {
+      max-width: 100%;
+      height: auto;
+      display: block;;
+      visibility: hidden;
+  }
+  .ui a.disabled {
+      pointer-events: none;
+      color: #cccccc;
+  }
+  #snap.visible {
+      visibility: visible;
+  }
+  video {
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    left: 0;
+    min-height: 100%;
+    min-height: 100vh;
+    min-width: 100%;
+    min-width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  .vsc-initialized {
+    height: 100%!important;
+    height: 100vh!important;
+    position: relative!important;
+    width: 100%!important;
+  }
 }
