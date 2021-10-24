@@ -28,7 +28,7 @@ function TopPage() {
       </div>
       <div className = "main-down">
           <div className = "main-map">
-            <StyledLink to="/camera">
+            <StyledLink to="/map">
               <Button class = "btn-square">
                 <div className = "font">
                   <p className = "font-size">マップ</p>

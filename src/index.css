@@ -30,6 +30,50 @@ code {
     background-image: url("./PARK.png");
     background-size: cover;
   }
+  .main-home{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-image: url("./Home.png");
+    background-size: cover;
+  }
+  .main-map{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-image: url("./Map.png");
+    background-size: cover;
+    margin: 0!important;
+  }
+  .main-point{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-image: url("./Point.png");
+    background-size: cover;
+    margin: 0!important;
+  }
+  .main-home a{
+    position:  absolute;        /* 要素の配置方法を指定 */
+    padding:  20px;             /* 余白指定 */
+    left:  108px;                /* 左からの位置指定 */
+    top: 583px;  
+  }
+  .main-home .btn-square {
+    height: 84px;
+    display: inline-block;
+    padding: 0.5em 1em;
+    width: 130px;
+    text-decoration: none;
+    background: #EFEFEF;
+    border: 1px solid #999797;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+  }
   .main-top {
     margin-top: 100PX;
   }
@@ -100,5 +144,72 @@ code {
   .fa-images {
     font-size: 40px;
     color: rgb(255, 166, 1);
+  }
+
+  .ui {
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 10px 15px 30px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .ui a {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background-color: #ffffff;
+      line-height: 100%;
+      color: #303030;
+      margin: 10px 3px;
+      border-radius: 50%;
+      position: relative;
+
+  }
+  .ui a i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+  }
+  .ui a:active {
+      color: #ff0000;
+  }
+
+  #snap {
+      max-width: 100%;
+      height: auto;
+      display: block;;
+      visibility: hidden;
+  }
+  .ui a.disabled {
+      pointer-events: none;
+      color: #cccccc;
+  }
+  #snap.visible {
+      visibility: visible;
+  }
+  video {
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    left: 0;
+    min-height: 100%;
+    min-height: 100vh;
+    min-width: 100%;
+    min-width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  .vsc-initialized {
+    height: 100%!important;
+    height: 100vh!important;
+    position: relative!important;
+    width: 100%!important;
   }
 }
