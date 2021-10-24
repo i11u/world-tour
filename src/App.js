@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import TopPage from "./pages/TopPage";
-import CameraPage from "./pages/CameraPage";
+import MapPage from "./pages/MapPage";
 import PhotoListPage from "./pages/PhotoListPage";
 import PointListPage from "./pages/PointListPage";
 import ARReaderPage from "./pages/ARReaderPage";
 import LoginPage from "./pages/LoginPage";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   return (
     <BrowserRouter>
@@ -23,8 +23,8 @@ function App() {
           <Route path="/ar-reader">
             <ARReaderPage />
           </Route>
-          <Route path="/camera">
-            <CameraPage />
+          <Route path="/map">
+            <MapPage />
           </Route>
           <Route path="/pointlist">
             <PointListPage />
