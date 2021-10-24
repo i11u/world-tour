@@ -1,41 +1,66 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import TopPage from "./pages/TopPage";
-import CameraPage from "./pages/CameraPage";
+import MapPage from "./pages/MapPage";
 import PhotoListPage from "./pages/PhotoListPage";
 import PointListPage from "./pages/PointListPage";
 import ARReaderPage from "./pages/ARReaderPage";
+import liff from "@line/liff";
 import LoginPage from "./pages/LoginPage";
 
-function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+class App extends Component {
+  // const [loggedIn, setLoggedIn] = useState(true);
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      userLineID: "",
+      pictureUrl: "",
+    };
+  }
 
-  return (
-    <BrowserRouter>
-      <div>
-        <Switch>
-          <Route exact path="/">
-            {loggedIn ? <TopPage /> : <Redirect to="/login" />}
-          </Route>
-          <Route path="/login">
-            <LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-          </Route>
-          <Route path="/ar-reader">
-            <ARReaderPage />
-          </Route>
-          <Route path="/camera">
-            <CameraPage />
-          </Route>
-          <Route path="/pointlist">
-            <PointListPage />
-          </Route>
-          <Route path="/photolist">
-            <PhotoListPage />
-          </Route>{" "}
-        </Switch>
-      </div>
-    </BrowserRouter>
-  );
+  componentDidMount = async () => {
+    await liff.init({ liffId: "1656562501-GwVbApqE" }).catch((err) => {
+      throw err;
+    });
+    if (liff.isLoggedIn()) {
+      let getProfile = await liff.getProfile();
+      this.setState({
+        name: getProfile.displayName,
+        userLineID: getProfile.userId,
+        pictureUrl: getProfile.pictureUrl,
+      });
+    } else {
+      liff.login();
+      console.log(liff.isLoggedIn.toString());
+    }
+  };
+
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <TopPage userLineID={this.userLineID} />
+            </Route>
+            <Route path="/ar-reader">
+              <ARReaderPage userLineID={this.userLineID} />
+            </Route>
+            <Route path="/map">
+              <MapPage userLineID={this.userLineID} />
+            </Route>
+            <Route path="/pointlist">
+              <PointListPage userLineID={this.userLineID} />
+            </Route>
+            <Route path="/photolist">
+              <PhotoListPage userLineID={this.userLineID} />
+            </Route>{" "}
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
